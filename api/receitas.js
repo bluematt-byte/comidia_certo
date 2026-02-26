@@ -1,4 +1,5 @@
 export default async function handler(req, res) {
+  console.log("CHAVE OPENAI:", process.env.OPENAI_API_KEY);
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Método não permitido" });
   }
