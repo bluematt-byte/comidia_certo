@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>COMIDIA - IA na Cozinha</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <h1>COMID<span>IA</span></h1>
+  <p>Transformando ingredientes em soluções inteligentes</p>
+  <button onclick="scrollToApp()">Começar</button>
+</header>
+
+<section class="app" id="app">
+  <h2>Quais ingredientes você tem?</h2>
+
+  <textarea id="ingredientes" placeholder="Ex: arroz, frango, queijo..."></textarea>
+
+  <select id="objetivo">
+    <option value="">Objetivo (opcional)</option>
+    <option value="rapido">Rápido</option>
+    <option value="fitness">Fitness</option>
+    <option value="vegetariano">Vegetariano</option>
+    <option value="economico">Econômico</option>
+  </select>
+
+  <button onclick="buscarReceitas()">Gerar Receitas</button>
+
+  <div id="loading" class="loading hidden">Gerando receitas...</div>
+
+  <div id="receitas" class="receitas-container"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

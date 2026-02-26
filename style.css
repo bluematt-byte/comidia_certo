@@ -1,0 +1,76 @@
+:root {
+  --azul-escuro: #0f172a;
+  --azul-grad1: #1e3a8a;
+  --azul-grad2: #2563eb;
+  --verde-ia: #22c55e;
+  --preto-card: #0b0f19;
+  --branco-texto: #f1f5f9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, var(--azul-escuro), var(--azul-grad2));
+  color: var(--branco-texto);
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, var(--azul-escuro), var(--azul-grad1));
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 4rem;
+}
+
+.hero span {
+  color: var(--verde-ia);
+}
+
+.app {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+textarea, select {
+  width: 100%;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 15px;
+  border: none;
+  background: #1e293b;
+  color: white;
+}
+
+button {
+  margin-top: 20px;
+  padding: 14px 30px;
+  border-radius: 30px;
+  border: none;
+  background: var(--verde-ia);
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.card {
+  background: var(--preto-card);
+  border-radius: 20px;
+  padding: 25px;
+  margin-top: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.card h3 {
+  color: var(--verde-ia);
+}
+
+.hidden {
+  display: none;
+}
