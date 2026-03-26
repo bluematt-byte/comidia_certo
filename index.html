@@ -1,39 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <title>COMIDIA - IA na Cozinha</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>ComidIA</title>
+<link rel="stylesheet" href="comidia.css">
 </head>
+
 <body>
 
-<header class="hero">
-  <h1>COMID<span>IA</span></h1>
-  <p>Transformando ingredientes em soluções inteligentes</p>
-  <button onclick="scrollToApp()">Começar</button>
-</header>
-
-<section class="app" id="app">
-  <h2>Quais ingredientes você tem?</h2>
-
-  <textarea id="ingredientes" placeholder="Ex: arroz, frango, queijo..."></textarea>
-
-  <select id="objetivo">
-    <option value="">Objetivo (opcional)</option>
-    <option value="rapido">Rápido</option>
-    <option value="fitness">Fitness</option>
-    <option value="vegetariano">Vegetariano</option>
-    <option value="economico">Econômico</option>
-  </select>
-
-  <button onclick="buscarReceitas()">Gerar Receitas</button>
-
-  <div id="loading" class="loading hidden">Gerando receitas...</div>
-
-  <div id="receitas" class="receitas-container"></div>
+<section class="hero">
+<h1>Comid<span>IA</span></h1>
+<p>Descubra receitas com os ingredientes que você tem</p>
 </section>
 
-<script src="script.js"></script>
+<section class="app">
+
+<label>Quais ingredientes você tem?</label>
+<textarea id="ingredientes" placeholder="Ex: arroz, tomate, frango"></textarea>
+
+<label>Tipo de receita</label>
+
+<select id="tipo">
+<option value="rápida">Rápida</option>
+<option value="econômica">Econômica</option>
+<option value="vegetariana">Vegetariana</option>
+<option value="fitness">Fitness</option>
+</select>
+
+<button onclick="gerarReceita()">Gerar Receita</button>
+
+<div id="loading" class="card hidden">
+<h3>🤖 ComidIA está preparando sua receita...</h3>
+<p>Seu pedido está sendo enviado para a IA.</p>
+<p><b>O prompt foi copiado automaticamente.</b></p>
+<p>Quando o chat abrir, basta colar com <b>CTRL + V</b>.</p>
+<p>Aguarde alguns segundos...</p>
+</div>
+
+</section>
+
+<script>
+
+function gerarReceita(){
+
+let ingredientes = document.getElementById("ingredientes").value
+let tipo = document.getElementById("tipo").value
+
+let prompt = `Crie uma receita usando os seguintes ingredientes: ${ingredientes}.
+Tipo de receita: ${tipo}.
+
+Formato da resposta:
+Nome da receita
+Ingredientes
+Modo de preparo
+Tempo de preparo.`
+
+// mostra mensagem
+document.getElementById("loading").classList.remove("hidden")
+
+// copia prompt
+navigator.clipboard.writeText(prompt)
+
+// espera 6 segundos
+setTimeout(function(){
+
+window.open("https://poe.com/ComidiaBot", "_blank")
+
+document.getElementById("loading").classList.add("hidden")
+
+},10000)
+
+}
+
+</script>
+
 </body>
 </html>
